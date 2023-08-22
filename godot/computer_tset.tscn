@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://7akq4nltgc76"]
+[gd_scene load_steps=12 format=3 uid="uid://7akq4nltgc76"]
 
 [ext_resource type="Texture2D" uid="uid://4c14hmidlwlh" path="res://assets/computer/WINDOWS.png" id="1_hjdb1"]
 [ext_resource type="Texture2D" uid="uid://l6k6fp5pccu" path="res://daka.png" id="1_usnlp"]
 [ext_resource type="Texture2D" uid="uid://p3ta8rgwujbk" path="res://Sprite-0002.png" id="2_kt6xn"]
 [ext_resource type="FontFile" uid="uid://c0vv24o4na82j" path="res://font/中文像素.ttf" id="3_ngggh"]
+[ext_resource type="Texture2D" uid="uid://brfpsnatg4eph" path="res://assets/computer/关闭按钮.png" id="5_b0qb1"]
 [ext_resource type="Texture2D" uid="uid://cf7oovuvwimpa" path="res://assets/computer/CyberPetWindow/框.png" id="6_2xyqh"]
 [ext_resource type="Texture2D" uid="uid://deoe6jlhnpqpq" path="res://assets/computer/MainMenu/dianzichongwu.png" id="6_s6f3x"]
+[ext_resource type="Texture2D" uid="uid://dxna06wpk04ui" path="res://assets/computer/窄窗口.png" id="6_unh5c"]
+[ext_resource type="Texture2D" uid="uid://drwm2lgfyvgvn" path="res://assets/computer/窄窗口背景.png" id="7_bfcdh"]
 [ext_resource type="Texture2D" uid="uid://luctcpm5jxi1" path="res://icon.svg" id="7_eiy38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fhka"]
@@ -57,6 +60,41 @@ offset_bottom = 90.1714
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ngggh")
 text = "打卡"
+
+[node name="chuangkoukongzhi" type="Control" parent="WindoseMainMenu/Daka"]
+anchors_preset = 0
+offset_left = 270.0
+offset_top = 53.0
+offset_right = 400.0
+offset_bottom = 278.0
+
+[node name="TextureButton" type="TextureButton" parent="WindoseMainMenu/Daka/chuangkoukongzhi"]
+z_index = 2
+layout_mode = 0
+offset_left = 90.5269
+offset_top = 6.55321
+offset_right = 100.527
+offset_bottom = 16.5532
+texture_normal = ExtResource("5_b0qb1")
+
+[node name="TextureRect" type="TextureRect" parent="WindoseMainMenu/Daka/chuangkoukongzhi"]
+visibility_layer = 1022
+z_index = 2
+layout_mode = 0
+offset_left = -27.8946
+offset_top = -2.43599
+offset_right = 110.105
+offset_bottom = 227.564
+texture = ExtResource("6_unh5c")
+
+[node name="TextureRect2" type="TextureRect" parent="WindoseMainMenu/Daka/chuangkoukongzhi"]
+z_index = 1
+layout_mode = 0
+offset_left = -29.2103
+offset_top = -1.31233
+offset_right = 108.79
+offset_bottom = 228.688
+texture = ExtResource("7_bfcdh")
 
 [node name="PetButton" type="PetButton" parent="WindoseMainMenu"]
 layout_mode = 2
