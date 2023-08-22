@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://7akq4nltgc76"]
+[gd_scene load_steps=6 format=3 uid="uid://7akq4nltgc76"]
 
 [ext_resource type="Texture2D" uid="uid://4c14hmidlwlh" path="res://assets/computer/WINDOWS.png" id="1_hjdb1"]
 [ext_resource type="Texture2D" uid="uid://l6k6fp5pccu" path="res://daka.png" id="1_usnlp"]
 [ext_resource type="Texture2D" uid="uid://p3ta8rgwujbk" path="res://Sprite-0002.png" id="2_kt6xn"]
 [ext_resource type="FontFile" uid="uid://c0vv24o4na82j" path="res://font/中文像素.ttf" id="3_ngggh"]
-[ext_resource type="Texture2D" uid="uid://luctcpm5jxi1" path="res://icon.svg" id="6_013k1"]
 [ext_resource type="Texture2D" uid="uid://deoe6jlhnpqpq" path="res://assets/computer/MainMenu/dianzichongwu.png" id="6_s6f3x"]
 
 [node name="Node2D" type="Node2D"]
@@ -67,48 +66,3 @@ offset_bottom = 80.3059
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ngggh")
 text = "CyberPet"
-
-[node name="PetEditorIcon" type="PetEditor" parent="WindoseMainMenu"]
-layout_mode = 0
-offset_left = 26.3158
-offset_top = 180.907
-offset_right = 90.3158
-offset_bottom = 244.907
-texture_normal = ExtResource("6_s6f3x")
-
-[node name="CyberPet" type="Label" parent="WindoseMainMenu/PetEditorIcon"]
-layout_mode = 0
-offset_left = -6.57892
-offset_top = 57.3059
-offset_right = 79.4211
-offset_bottom = 80.3059
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_ngggh")
-text = "宠物编辑器
-"
-
-[node name="PetEditor" type="Control" parent="WindoseMainMenu"]
-visible = false
-anchors_preset = 0
-offset_left = 197.369
-offset_top = 23.5965
-offset_right = 468.369
-offset_bottom = 292.596
-
-[node name="PetEditorCloseButton" type="PetEditorUI" parent="WindoseMainMenu/PetEditor"]
-layout_mode = 0
-offset_left = 269.737
-offset_top = -1.12365
-offset_right = 301.737
-offset_bottom = 29.8764
-texture_normal = ExtResource("6_013k1")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="CodeEdit" type="CodeEdit" parent="WindoseMainMenu/PetEditor/PetEditorCloseButton"]
-layout_mode = 0
-offset_left = -268.421
-offset_top = -1.12364
-offset_right = -0.421448
-offset_bottom = 265.876
-theme_override_colors/background_color = Color(0, 0, 0, 1)
