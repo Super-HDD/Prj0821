@@ -1,0 +1,4 @@
+rust/target/debug/incremental
+rust/target/debug/deps
+rust/target/debug/build
+rust/cargo.lock
