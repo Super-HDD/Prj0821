@@ -1,5 +1,4 @@
 rust/target/debug/incremental
 rust/target/debug/deps
 rust/target/debug/build
-rust/target/debug/.fingerprint
 rust/cargo.lock
