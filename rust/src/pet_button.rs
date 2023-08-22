@@ -1,7 +1,6 @@
 use godot::prelude::*;
-use godot::engine::{TextureButton,TextureButtonVirtual,Label, Control};
+use godot::engine::{TextureButton,TextureButtonVirtual, Control};
 
-use crate::game_manager::{GameManager, CURRENT_MENU_IDX, WindoseMenuIdx};
 
 #[derive(GodotClass)]
 #[class(base=TextureButton)]
@@ -24,9 +23,6 @@ impl TextureButtonVirtual for PetButton{
 
     fn pressed(&mut self){
 
-        unsafe{
-            CURRENT_MENU_IDX=WindoseMenuIdx::PetMenu;
-        }
 
         let mut cyber_pet_window:Gd<Control>=self.base.get_node_as("../CyberPetWindow");
         //let mut windose_main_menu:Gd<Control>=self.base.get_parent().unwrap().get_parent().unwrap().get_parent().unwrap().get_node_as("WindoseMainMenu");
