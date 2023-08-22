@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7akq4nltgc76"]
+[gd_scene load_steps=13 format=3 uid="uid://7akq4nltgc76"]
 
 [ext_resource type="Texture2D" uid="uid://4c14hmidlwlh" path="res://assets/computer/WINDOWS.png" id="1_hjdb1"]
 [ext_resource type="Texture2D" uid="uid://l6k6fp5pccu" path="res://daka.png" id="1_usnlp"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dxna06wpk04ui" path="res://assets/computer/窄窗口.png" id="6_unh5c"]
 [ext_resource type="Texture2D" uid="uid://drwm2lgfyvgvn" path="res://assets/computer/窄窗口背景.png" id="7_bfcdh"]
 [ext_resource type="Texture2D" uid="uid://luctcpm5jxi1" path="res://icon.svg" id="7_eiy38"]
+[ext_resource type="Texture2D" uid="uid://do62xqevrsyda" path="res://assets/computer/窗口背景.png" id="11_fx630"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fhka"]
 size = Vector2(53.9474, 44.9456)
@@ -56,7 +57,6 @@ theme_override_fonts/font = ExtResource("3_ngggh")
 text = "打卡"
 
 [node name="DakaDialog" type="Control" parent="WindoseMainMenu/Daka"]
-visible = false
 anchors_preset = 0
 offset_left = 264.0
 offset_top = 53.0
@@ -64,7 +64,7 @@ offset_right = 400.0
 offset_bottom = 278.0
 
 [node name="CloseButton" type="DakaCloseButton" parent="WindoseMainMenu/Daka/DakaDialog"]
-z_index = 2
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.773
@@ -125,20 +125,23 @@ theme_override_fonts/font = ExtResource("3_ngggh")
 text = "CyberPet"
 
 [node name="CyberPetWindow" type="Control" parent="WindoseMainMenu"]
-visible = false
+z_index = 1
 anchors_preset = 0
 offset_left = 162.0
 offset_top = 104.0
 offset_right = 561.0
 offset_bottom = 276.0
 scale = Vector2(0.990903, 0.984518)
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="WindoseMainMenu/CyberPetWindow"]
+z_index = 1
 layout_mode = 0
 offset_left = -282.895
 offset_top = -217.987
 offset_right = 617.105
 offset_bottom = 682.013
+mouse_filter = 2
 texture = ExtResource("6_2xyqh")
 
 [node name="CyberPetCharacterBody" type="CyberPetCharacterBody" parent="WindoseMainMenu/CyberPetWindow/TextureRect"]
@@ -163,3 +166,20 @@ position = Vector2(-221.914, -30.3087)
 position = Vector2(223.083, 29.6742)
 build_mode = 1
 polygon = PackedVector2Array(-1.487, 1.64813, -1.487, 175.128, 402.186, 176.269, 400.858, -36.0152, -1.487, -34.8739)
+
+[node name="TextureRect2" type="TextureRect" parent="WindoseMainMenu/CyberPetWindow"]
+layout_mode = 0
+offset_left = -4.14276
+offset_top = -47.4284
+offset_right = 403.857
+offset_bottom = 179.572
+mouse_filter = 2
+texture = ExtResource("11_fx630")
+
+[node name="CloseButton" type="DakaCloseButton" parent="WindoseMainMenu/CyberPetWindow"]
+layout_mode = 0
+offset_left = 386.251
+offset_top = -45.1458
+offset_right = 396.251
+offset_bottom = -35.1458
+texture_normal = ExtResource("5_b0qb1")
