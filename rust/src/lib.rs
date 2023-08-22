@@ -4,6 +4,8 @@ mod daka;
 mod pet_button;
 mod mini_app;
 mod game_manager;
+mod pet_editor;
+mod pet_editor_ui;
 //mod controller;
 struct Prj0821;
 

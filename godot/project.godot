@@ -17,6 +17,6 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1000
+window/size/viewport_width=900
 window/size/viewport_height=900
 mouse_cursor/custom_image="res://assets/computer/图层 9.png"
