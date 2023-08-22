@@ -1,0 +1,28 @@
+[gd_resource type="Theme" format=3 uid="uid://dgqa64sn1ndkl"]
+
+[resource]
+/colors/default_app_name_color = Color(0, 0, 0, 0)
+/icons/texture = null
+TextEdit/colors/background_color = Color(0, 0, 0, 0)
+TextEdit/colors/caret_background_color = Color(0, 0, 0, 1)
+TextEdit/colors/caret_color = Color(0, 0, 0, 1)
+TextEdit/colors/current_line_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_placeholder_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_readonly_color = Color(0, 0, 0, 1)
+TextEdit/colors/font_selected_color = Color(0, 0, 0, 1)
+TextEdit/colors/search_result_border_color = Color(0, 0, 0, 1)
+TextEdit/colors/search_result_color = Color(0, 0, 0, 1)
+TextEdit/colors/selection_color = Color(0, 0, 0, 1)
+TextEdit/colors/word_highlighted_color = Color(0, 0, 0, 1)
+TextEdit/constants/caret_width = 0
+TextEdit/constants/line_spacing = 0
+TextEdit/constants/outline_size = 0
+TextEdit/font_sizes/font_size = 16
+TextEdit/fonts/font = null
+TextEdit/icons/space = null
+TextEdit/icons/tab = null
+TextEdit/styles/focus = null
+TextEdit/styles/normal = null
+TextEdit/styles/read_only = null

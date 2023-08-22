@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://7akq4nltgc76"]
+
+[ext_resource type="Texture2D" uid="uid://4c14hmidlwlh" path="res://assets/computer/WINDOWS.png" id="1_hjdb1"]
+[ext_resource type="Texture2D" uid="uid://l6k6fp5pccu" path="res://daka.png" id="1_usnlp"]
+[ext_resource type="Texture2D" uid="uid://p3ta8rgwujbk" path="res://Sprite-0002.png" id="2_kt6xn"]
+[ext_resource type="FontFile" uid="uid://c0vv24o4na82j" path="res://font/中文像素.ttf" id="3_ngggh"]
+[ext_resource type="Texture2D" uid="uid://deoe6jlhnpqpq" path="res://assets/computer/MainMenu/dianzichongwu.png" id="6_s6f3x"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Windose1" type="Sprite2D" parent="."]
+position = Vector2(448, 450)
+texture = ExtResource("1_hjdb1")
+
+[node name="WindoseMainMenu" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 227.0
+offset_top = 127.0
+offset_right = 904.0
+offset_bottom = 500.0
+scale = Vector2(0.759999, 0.889961)
+
+[node name="Daka" type="Daka" parent="WindoseMainMenu"]
+layout_mode = 2
+offset_left = 23.6842
+offset_top = 6.74187
+offset_right = 87.6842
+offset_bottom = 116.742
+action_mode = 0
+texture_normal = ExtResource("1_usnlp")
+texture_pressed = ExtResource("2_kt6xn")
+texture_hover = ExtResource("2_kt6xn")
+
+[node name="daka" type="AcceptDialog" parent="WindoseMainMenu/Daka"]
+title = "打卡"
+initial_position = 4
+exclusive = false
+unresizable = true
+
+[node name="Label" type="Label" parent="WindoseMainMenu/Daka"]
+layout_mode = 0
+offset_left = 13.1579
+offset_top = 66.295
+offset_right = 53.1579
+offset_bottom = 91.295
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ngggh")
+text = "打卡"
+
+[node name="PetButton" type="PetButton" parent="WindoseMainMenu"]
+layout_mode = 2
+offset_left = 21.0526
+offset_top = 97.7571
+offset_right = 85.0526
+offset_bottom = 207.757
+texture_normal = ExtResource("6_s6f3x")
+
+[node name="CyberPet" type="Label" parent="WindoseMainMenu/PetButton"]
+layout_mode = 0
+offset_left = -6.57892
+offset_top = 57.3059
+offset_right = 79.4211
+offset_bottom = 80.3059
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ngggh")
+text = "CyberPet"

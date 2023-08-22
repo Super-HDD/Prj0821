@@ -1,0 +1,13 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = 4.1
+
+[libraries]
+linux.debug.x86_64 = "res://../rust/target/debug/libprj0821.so"
+linux.release.x86_64 = "res://../rust/target/release/libprj0821.so"
+windows.debug.x86_64 = "res://../rust/target/debug/prj0821.dll"
+windows.release.x86_64 = "res://../rust/target/release/prj0821.dll"
+macos.debug = "res://../rust/target/debug/libprj0821.dylib"
+macos.release = "res://../rust/target/release/libprj0821.dylib"
+macos.debug.arm64 = "res://../rust/target/debug/libprj0821.dylib"
+macos.release.arm64 = "res://../rust/target/release/libprj0821.dylib"
