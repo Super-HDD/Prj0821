@@ -1,6 +1,6 @@
 use godot::engine::global::MouseButton;
 use godot::prelude::*;
-use godot::engine::{CharacterBody2D, CharacterBody2DVirtual, InputEvent, InputEventMouseButton,Timer, TimerVirtual};
+use godot::engine::{CharacterBody2D, CharacterBody2DVirtual, InputEvent, InputEventMouseButton,Timer, TimerVirtual,Sprite2D};
 
 
 #[derive(GodotClass)]
@@ -84,9 +84,13 @@ impl CharacterBody2DVirtual for CyberPetCharacterBody{
         if event.is_class("InputEventMouseButton".into()){
             let mouse_event:Gd<InputEventMouseButton>=event.cast();
              if mouse_event.is_pressed() && mouse_event.get_button_index()==MouseButton::MOUSE_BUTTON_LEFT{
-                let mut touch_timer:Gd<PetTouchTimer>=self.base.get_node_as("Timer");
-                self.is_touched=true;
-                touch_timer.start();
+                let sprite:Gd<Sprite2D>=self.base.get_node_as("Sprite2D");
+                if sprite.get_rect().has_point(sprite.to_local(mouse_event.get_position())){
+                    let mut touch_timer:Gd<PetTouchTimer>=self.base.get_node_as("Timer");
+                    self.is_touched=true;
+                    touch_timer.start();
+                }
+
              }
                 
             godot_print!("detected");
