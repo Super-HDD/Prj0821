@@ -57,6 +57,7 @@ theme_override_fonts/font = ExtResource("3_ngggh")
 text = "打卡"
 
 [node name="DakaDialog" type="Control" parent="WindoseMainMenu/Daka"]
+visible = false
 anchors_preset = 0
 offset_left = 264.0
 offset_top = 53.0
@@ -125,6 +126,7 @@ theme_override_fonts/font = ExtResource("3_ngggh")
 text = "CyberPet"
 
 [node name="CyberPetWindow" type="Control" parent="WindoseMainMenu"]
+visible = false
 z_index = 1
 anchors_preset = 0
 offset_left = 162.0
