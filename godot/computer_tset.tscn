@@ -33,10 +33,10 @@ scale = Vector2(0.759999, 0.889961)
 
 [node name="Daka" type="Daka" parent="WindoseMainMenu"]
 layout_mode = 2
-offset_left = 23.6842
-offset_top = 6.74187
-offset_right = 87.6842
-offset_bottom = 116.742
+offset_left = 19.7369
+offset_top = 7.86551
+offset_right = 83.7369
+offset_bottom = 117.866
 action_mode = 0
 texture_normal = ExtResource("1_usnlp")
 texture_pressed = ExtResource("2_kt6xn")
