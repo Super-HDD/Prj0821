@@ -114,15 +114,6 @@ impl CyberPetCharacterBody{
 impl CyberPetCharacterBody{
     fn rand_move(&mut self){
 
-        //let is_moving_right:bool=rand::random();
-        // if self.is_touched{
-        //     self.base.set_velocity(Vector2::new(0.0,0.0));
-        // }else if is_moving_right {
-        //     self.base.set_velocity(Vector2::RIGHT*self.speed);
-        // }else{
-        //     self.base.set_velocity(Vector2::LEFT*self.speed);
-        // }
-
         if self.is_touched{
             self.base.set_velocity(Vector2::new(0.0,0.0));
         }else if self.is_moving_right{
