@@ -13,7 +13,7 @@ pub struct Daka {
 #[godot_api]
 impl TextureButtonVirtual for Daka{
     fn init(base: Base<TextureButton>) -> Self {
-        godot_print!("daka loaded");
+        
 
         Self {
             is_already_clockin:false,

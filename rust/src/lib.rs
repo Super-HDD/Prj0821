@@ -6,6 +6,7 @@ mod mini_app;
 mod game_manager;
 mod pet_editor;
 mod pet_editor_ui;
+mod cyber_pet;
 //mod controller;
 struct Prj0821;
 

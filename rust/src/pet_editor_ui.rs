@@ -36,8 +36,7 @@ impl TextureButtonVirtual for PetEditorUI {
     fn pressed(&mut self){
         
         self.pet_code=String::from(self.pet_code_edit.get_text());
-
-       self.pet_editor_ui.set_visible(false);
+        self.pet_editor_ui.set_visible(false);
     }
 
 }
