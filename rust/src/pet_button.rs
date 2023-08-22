@@ -28,9 +28,9 @@ impl TextureButtonVirtual for PetButton{
             CURRENT_MENU_IDX=WindoseMenuIdx::PetMenu;
         }
 
-        let mut windose_main_menu:Gd<Control>=self.base.get_node_as("../");
+        let mut cyber_pet_window:Gd<Control>=self.base.get_node_as("../CyberPetWindow");
         //let mut windose_main_menu:Gd<Control>=self.base.get_parent().unwrap().get_parent().unwrap().get_parent().unwrap().get_node_as("WindoseMainMenu");
-        windose_main_menu.set_visible(false);
+        cyber_pet_window.set_visible(true);
         
     }
 }

@@ -73,6 +73,7 @@ theme_override_fonts/font = ExtResource("3_ngggh")
 text = "CyberPet"
 
 [node name="CyberPetWindow" type="Control" parent="WindoseMainMenu"]
+visible = false
 anchors_preset = 0
 offset_left = 162.0
 offset_top = 104.0
@@ -89,10 +90,10 @@ offset_bottom = 682.013
 texture = ExtResource("6_2xyqh")
 
 [node name="CyberPetCharacterBody" type="CyberPetCharacterBody" parent="WindoseMainMenu/CyberPetWindow/TextureRect"]
-position = Vector2(-26.6581, 8.49199)
+position = Vector2(58.3257, 8.49192)
 
 [node name="Sprite2D" type="Sprite2D" parent="WindoseMainMenu/CyberPetWindow/TextureRect/CyberPetCharacterBody"]
-position = Vector2(340.79, 358.443)
+position = Vector2(339.935, 359.514)
 scale = Vector2(0.428042, 0.359544)
 texture = ExtResource("7_eiy38")
 
@@ -107,6 +108,6 @@ wait_time = 2.0
 position = Vector2(-221.914, -30.3087)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WindoseMainMenu/CyberPetWindow/WindowBottomColl"]
-position = Vector2(224.251, 27.8984)
+position = Vector2(223.083, 29.6742)
 build_mode = 1
 polygon = PackedVector2Array(-1.487, 1.64813, -1.487, 175.128, 402.186, 176.269, 400.858, -36.0152, -1.487, -34.8739)
