@@ -13,21 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://do62xqevrsyda" path="res://assets/computer/窗口背景.png" id="11_fx630"]
 [ext_resource type="Texture2D" uid="uid://5ojn8imathx6" path="res://assets/computer/MainMenu/gongzuo.png" id="12_nqx6k"]
 
-[node name="Node2D" type="Node2D"]
+[node name="DeskScene" type="Node2D"]
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Windose1" type="Sprite2D" parent="."]
+[node name="Desk" type="Sprite2D" parent="."]
 position = Vector2(448, 450)
 texture = ExtResource("1_hjdb1")
 
-[node name="WindoseMainMenu" type="Windose" parent="."]
-position = Vector2(222, 125)
+[node name="Windose" type="Windose" parent="Desk"]
+position = Vector2(-226, -325)
 scale = Vector2(0.759999, 0.889961)
 
-[node name="Label2" type="Label" parent="WindoseMainMenu"]
+[node name="Label2" type="Label" parent="Desk/Windose"]
 anchors_preset = -1
 anchor_top = 0.86
 anchor_bottom = 0.86
@@ -39,7 +35,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ngggh")
 text = "工作"
 
-[node name="Daka" type="Daka" parent="WindoseMainMenu"]
+[node name="Daka" type="Daka" parent="Desk/Windose"]
 offset_left = 19.7369
 offset_top = 7.86551
 offset_right = 83.7369
@@ -49,7 +45,7 @@ texture_normal = ExtResource("1_usnlp")
 texture_pressed = ExtResource("2_kt6xn")
 texture_hover = ExtResource("2_kt6xn")
 
-[node name="Label" type="Label" parent="WindoseMainMenu/Daka"]
+[node name="Label" type="Label" parent="Desk/Windose/Daka"]
 layout_mode = 0
 offset_left = 15.7895
 offset_top = 60.6768
@@ -59,7 +55,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ngggh")
 text = "打卡"
 
-[node name="DakaDialog" type="Control" parent="WindoseMainMenu/Daka"]
+[node name="DakaDialog" type="Control" parent="Desk/Windose/Daka"]
 visible = false
 anchors_preset = 0
 offset_left = 264.0
@@ -67,7 +63,7 @@ offset_top = 53.0
 offset_right = 400.0
 offset_bottom = 278.0
 
-[node name="CloseButton" type="DakaCloseButton" parent="WindoseMainMenu/Daka/DakaDialog"]
+[node name="CloseButton" type="DakaCloseButton" parent="Desk/Windose/Daka/DakaDialog"]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
@@ -81,7 +77,7 @@ offset_right = 23.7212
 offset_bottom = 3.95455
 texture_normal = ExtResource("5_b0qb1")
 
-[node name="TextureRect" type="TextureRect" parent="WindoseMainMenu/Daka/DakaDialog"]
+[node name="TextureRect" type="TextureRect" parent="Desk/Windose/Daka/DakaDialog"]
 visibility_layer = 1022
 z_index = 1
 layout_mode = 0
@@ -92,7 +88,7 @@ offset_bottom = 226.44
 mouse_filter = 2
 texture = ExtResource("6_unh5c")
 
-[node name="TextureRect2" type="TextureRect" parent="WindoseMainMenu/Daka/DakaDialog"]
+[node name="TextureRect2" type="TextureRect" parent="Desk/Windose/Daka/DakaDialog"]
 layout_mode = 0
 offset_left = -5.5261
 offset_top = -2.43599
@@ -101,7 +97,7 @@ offset_bottom = 227.564
 mouse_filter = 2
 texture = ExtResource("7_bfcdh")
 
-[node name="Label" type="Label" parent="WindoseMainMenu/Daka/DakaDialog"]
+[node name="Label" type="Label" parent="Desk/Windose/Daka/DakaDialog"]
 layout_mode = 0
 offset_left = 20.2109
 offset_top = 51.499
@@ -110,14 +106,14 @@ offset_bottom = 84.499
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ngggh")
 
-[node name="PetButton" type="PetButton" parent="WindoseMainMenu"]
+[node name="PetButton" type="PetButton" parent="Desk/Windose"]
 offset_left = 21.0526
 offset_top = 97.7571
 offset_right = 85.0526
 offset_bottom = 207.757
 texture_normal = ExtResource("6_s6f3x")
 
-[node name="CyberPet" type="Label" parent="WindoseMainMenu/PetButton"]
+[node name="CyberPet" type="Label" parent="Desk/Windose/PetButton"]
 layout_mode = 0
 offset_left = -6.57892
 offset_top = 57.3059
@@ -127,7 +123,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ngggh")
 text = "CyberPet"
 
-[node name="CyberPetWindow" type="Control" parent="WindoseMainMenu"]
+[node name="CyberPetWindow" type="Control" parent="Desk/Windose"]
 visible = false
 z_index = 1
 layout_mode = 3
@@ -139,7 +135,7 @@ offset_bottom = 276.0
 scale = Vector2(0.990903, 0.984518)
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="WindoseMainMenu/CyberPetWindow"]
+[node name="TextureRect" type="TextureRect" parent="Desk/Windose/CyberPetWindow"]
 z_index = 1
 layout_mode = 0
 offset_left = -282.895
@@ -149,17 +145,17 @@ offset_bottom = 682.013
 mouse_filter = 2
 texture = ExtResource("6_2xyqh")
 
-[node name="CyberPetCharacterBody" parent="WindoseMainMenu/CyberPetWindow/TextureRect" instance=ExtResource("10_4wvmt")]
+[node name="CyberPetCharacterBody" parent="Desk/Windose/CyberPetWindow/TextureRect" instance=ExtResource("10_4wvmt")]
 
-[node name="WindowBottomColl" type="StaticBody2D" parent="WindoseMainMenu/CyberPetWindow"]
+[node name="WindowBottomColl" type="StaticBody2D" parent="Desk/Windose/CyberPetWindow"]
 position = Vector2(-221.914, -30.3087)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WindoseMainMenu/CyberPetWindow/WindowBottomColl"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Desk/Windose/CyberPetWindow/WindowBottomColl"]
 position = Vector2(223.083, 29.6742)
 build_mode = 1
 polygon = PackedVector2Array(-1.487, 1.64813, -1.487, 175.128, 402.186, 176.269, 400.858, -36.0152, -1.487, -34.8739)
 
-[node name="TextureRect2" type="TextureRect" parent="WindoseMainMenu/CyberPetWindow"]
+[node name="TextureRect2" type="TextureRect" parent="Desk/Windose/CyberPetWindow"]
 layout_mode = 0
 offset_left = -4.14276
 offset_top = -47.4284
@@ -168,7 +164,7 @@ offset_bottom = 179.572
 mouse_filter = 2
 texture = ExtResource("11_fx630")
 
-[node name="CloseButton" type="DakaCloseButton" parent="WindoseMainMenu/CyberPetWindow"]
+[node name="CloseButton" type="DakaCloseButton" parent="Desk/Windose/CyberPetWindow"]
 layout_mode = 0
 offset_left = 386.251
 offset_top = -45.1458
@@ -176,14 +172,14 @@ offset_right = 396.251
 offset_bottom = -35.1458
 texture_normal = ExtResource("5_b0qb1")
 
-[node name="ClockLabel" type="Label" parent="WindoseMainMenu"]
+[node name="ClockLabel" type="Label" parent="Desk/Windose"]
 offset_left = 625.001
 offset_top = 347.206
 offset_right = 680.001
 offset_bottom = 373.206
 text = "7:59"
 
-[node name="WorkIcon" type="TextureButton" parent="WindoseMainMenu"]
+[node name="WorkIcon" type="TextureButton" parent="Desk/Windose"]
 offset_left = 22.3685
 offset_top = 179.783
 offset_right = 86.3685

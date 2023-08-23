@@ -30,7 +30,8 @@ impl TextureButtonVirtual for Daka{
         let mut daka_dialog:Gd<Control>=self.base.get_node_as("DakaDialog");
         let mut daka_label:Gd<Label>=self.base.get_node_as("DakaDialog/Label");
         if self.is_already_clockin==false {
-            daka_label.set_text("7:59:59\n打卡成功".into());
+            let daka_text=format!("{}\n打卡成功",self.base.get_node_as::<Label>("../ClockLabel").get_text());
+            daka_label.set_text(daka_text.as_str().into());
             self.is_already_clockin=true;
         }else{
             daka_label.set_text("已打卡".into());
