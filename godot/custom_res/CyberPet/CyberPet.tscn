@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://7htqmw0dbe7j"]
+
+[ext_resource type="Texture2D" uid="uid://luctcpm5jxi1" path="res://icon.svg" id="2_uxj2f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fhka"]
+size = Vector2(53.9474, 44.9456)
+
+[node name="CyberPetCharacterBody" type="CyberPetCharacterBody"]
+position = Vector2(58.3257, 8.49192)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(339.935, 359.514)
+scale = Vector2(0.428042, 0.359544)
+texture = ExtResource("2_uxj2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(339.834, 358.875)
+shape = SubResource("RectangleShape2D_1fhka")
+
+[node name="Timer" type="PetTouchTimer" parent="."]
+wait_time = 2.0

@@ -9,11 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://deoe6jlhnpqpq" path="res://assets/computer/MainMenu/dianzichongwu.png" id="6_s6f3x"]
 [ext_resource type="Texture2D" uid="uid://dxna06wpk04ui" path="res://assets/computer/窄窗口.png" id="6_unh5c"]
 [ext_resource type="Texture2D" uid="uid://drwm2lgfyvgvn" path="res://assets/computer/窄窗口背景.png" id="7_bfcdh"]
-[ext_resource type="Texture2D" uid="uid://luctcpm5jxi1" path="res://icon.svg" id="7_eiy38"]
+[ext_resource type="PackedScene" uid="uid://7htqmw0dbe7j" path="res://custom_res/CyberPet/CyberPet.tscn" id="10_4wvmt"]
 [ext_resource type="Texture2D" uid="uid://do62xqevrsyda" path="res://assets/computer/窗口背景.png" id="11_fx630"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fhka"]
-size = Vector2(53.9474, 44.9456)
+[ext_resource type="PackedScene" uid="uid://txq44yckm1pb" path="res://custom_res/popup_dialog/SpeechBubble.tscn" id="12_2xxni"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -146,20 +144,7 @@ offset_bottom = 682.013
 mouse_filter = 2
 texture = ExtResource("6_2xyqh")
 
-[node name="CyberPetCharacterBody" type="CyberPetCharacterBody" parent="WindoseMainMenu/CyberPetWindow/TextureRect"]
-position = Vector2(58.3257, 8.49192)
-
-[node name="Sprite2D" type="Sprite2D" parent="WindoseMainMenu/CyberPetWindow/TextureRect/CyberPetCharacterBody"]
-position = Vector2(339.935, 359.514)
-scale = Vector2(0.428042, 0.359544)
-texture = ExtResource("7_eiy38")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WindoseMainMenu/CyberPetWindow/TextureRect/CyberPetCharacterBody"]
-position = Vector2(339.834, 358.875)
-shape = SubResource("RectangleShape2D_1fhka")
-
-[node name="Timer" type="PetTouchTimer" parent="WindoseMainMenu/CyberPetWindow/TextureRect/CyberPetCharacterBody"]
-wait_time = 2.0
+[node name="CyberPetCharacterBody" parent="WindoseMainMenu/CyberPetWindow/TextureRect" instance=ExtResource("10_4wvmt")]
 
 [node name="WindowBottomColl" type="StaticBody2D" parent="WindoseMainMenu/CyberPetWindow"]
 position = Vector2(-221.914, -30.3087)
@@ -185,3 +170,5 @@ offset_top = -45.1458
 offset_right = 396.251
 offset_bottom = -35.1458
 texture_normal = ExtResource("5_b0qb1")
+
+[node name="SpeechBubble" parent="." instance=ExtResource("12_2xxni")]

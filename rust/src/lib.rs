@@ -7,6 +7,7 @@ mod pet_button;
 mod pet_editor;
 mod pet_editor_ui;
 mod cyber_pet;
+mod speech_bubble;
 //mod controller;
 struct Prj0821;
 
