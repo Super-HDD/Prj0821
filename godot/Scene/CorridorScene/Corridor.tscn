@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dqgel6gnou4bl"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 330.0
+offset_top = 341.0
+offset_right = 370.0
+offset_bottom = 366.0
+scale = Vector2(7.65511, 3.39143)
+text = "走廊"

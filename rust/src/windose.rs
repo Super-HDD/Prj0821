@@ -1,5 +1,5 @@
 use godot::prelude::*;
-use godot::engine::{Node2D,Node2DVirtual, TextureButton, Label};
+use godot::engine::{Node2D,Node2DVirtual, TextureButton, Label,Engine};
 
 use crate::work_window::WorkWindow;
 
@@ -43,7 +43,7 @@ impl Node2DVirtual for Windose{
         let input=Input::singleton();
         let mut scene_tree=self.base.get_tree().unwrap();
         if input.is_action_just_pressed(StringName::from("left_desk")){
-            scene_tree.reload_current_scene();
+            godot_print!("has_singleton:{}",Engine::singleton().has_singleton("GameManager".into()));
         }
     }
 }
