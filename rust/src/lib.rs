@@ -9,6 +9,8 @@ mod pet_editor_ui;
 mod cyber_pet;
 mod speech_bubble;
 //mod controller;
+mod work_window;
+mod windose;
 struct Prj0821;
 
 #[gdextension]

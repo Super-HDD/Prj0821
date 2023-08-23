@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://drwm2lgfyvgvn" path="res://assets/computer/窄窗口背景.png" id="7_bfcdh"]
 [ext_resource type="PackedScene" uid="uid://7htqmw0dbe7j" path="res://custom_res/CyberPet/CyberPet.tscn" id="10_4wvmt"]
 [ext_resource type="Texture2D" uid="uid://do62xqevrsyda" path="res://assets/computer/窗口背景.png" id="11_fx630"]
-[ext_resource type="PackedScene" uid="uid://txq44yckm1pb" path="res://custom_res/popup_dialog/SpeechBubble.tscn" id="12_2xxni"]
+[ext_resource type="Texture2D" uid="uid://5ojn8imathx6" path="res://assets/computer/MainMenu/gongzuo.png" id="12_nqx6k"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,18 +23,23 @@ offset_bottom = 40.0
 position = Vector2(448, 450)
 texture = ExtResource("1_hjdb1")
 
-[node name="WindoseMainMenu" type="Control" parent="."]
-unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 0
-offset_left = 227.0
-offset_top = 127.0
-offset_right = 904.0
-offset_bottom = 500.0
+[node name="WindoseMainMenu" type="Windose" parent="."]
+position = Vector2(222, 125)
 scale = Vector2(0.759999, 0.889961)
 
+[node name="Label2" type="Label" parent="WindoseMainMenu"]
+anchors_preset = -1
+anchor_top = 0.86
+anchor_bottom = 0.86
+offset_left = 32.8948
+offset_top = 234.842
+offset_right = 72.8948
+offset_bottom = 257.842
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ngggh")
+text = "工作"
+
 [node name="Daka" type="Daka" parent="WindoseMainMenu"]
-layout_mode = 2
 offset_left = 19.7369
 offset_top = 7.86551
 offset_right = 83.7369
@@ -106,7 +111,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_ngggh")
 
 [node name="PetButton" type="PetButton" parent="WindoseMainMenu"]
-layout_mode = 2
 offset_left = 21.0526
 offset_top = 97.7571
 offset_right = 85.0526
@@ -126,6 +130,7 @@ text = "CyberPet"
 [node name="CyberPetWindow" type="Control" parent="WindoseMainMenu"]
 visible = false
 z_index = 1
+layout_mode = 3
 anchors_preset = 0
 offset_left = 162.0
 offset_top = 104.0
@@ -171,4 +176,16 @@ offset_right = 396.251
 offset_bottom = -35.1458
 texture_normal = ExtResource("5_b0qb1")
 
-[node name="SpeechBubble" parent="." instance=ExtResource("12_2xxni")]
+[node name="ClockLabel" type="Label" parent="WindoseMainMenu"]
+offset_left = 625.001
+offset_top = 347.206
+offset_right = 680.001
+offset_bottom = 373.206
+text = "7:59"
+
+[node name="WorkIcon" type="TextureButton" parent="WindoseMainMenu"]
+offset_left = 22.3685
+offset_top = 179.783
+offset_right = 86.3685
+offset_bottom = 243.783
+texture_normal = ExtResource("12_nqx6k")

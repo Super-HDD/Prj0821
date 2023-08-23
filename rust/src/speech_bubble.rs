@@ -1,5 +1,5 @@
 use godot::prelude::*;
-use godot::engine::{PopupPanel,PopupPanelVirtual, RichTextLabel, TextureRect, Timer};
+use godot::engine::{RichTextLabel, TextureRect, Timer};
 
 #[derive(GodotClass)]
 #[class(base=Node2D)]
@@ -44,21 +44,25 @@ impl SpeechBubble{
     #[func]
     pub fn popup(&mut self,text:GodotString,position:Vector2,wait_time:f64){
         self.base.set_position(position);
-        //TODO:自适应文字大小
+
+        //自适应文字大小
         self.label.as_mut().unwrap().set_text(text);
         let mut text_size=Vector2::new(self.label.as_ref().unwrap().get_content_width() as f32,self.label.as_ref().unwrap().get_content_height() as f32);
         text_size+=self.margin_offset;
         self.bg.as_mut().unwrap().set_size(text_size);
-        godot_print!("text size:{}",text_size);
+
+        //godot_print!("text size:{}",text_size);
         //对话气泡可见
         self.base.set_visible(true);
 
 
-        //TODO:定时关闭
-        let mut timer=self.base.get_node_as::<Timer>("Timer");
-        timer.connect("timeout".into(), self.base.callable("on_time_out"));
-        timer.set_wait_time(wait_time);
-        timer.start();
+        //定时关闭
+        if wait_time>=0.0 {
+            let mut timer=self.base.get_node_as::<Timer>("Timer");
+            timer.connect("timeout".into(), self.base.callable("on_time_out"));
+            timer.set_wait_time(wait_time);
+            timer.start();
+        }
 
     }
 

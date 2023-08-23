@@ -1,8 +1,7 @@
 use godot::engine::global::MouseButton;
 use godot::prelude::*;
-use godot::engine::{CharacterBody2D, CharacterBody2DVirtual, InputEvent, InputEventMouseButton,Timer, TimerVirtual,Sprite2D, PopupPanel};
-
-use crate::speech_bubble::{self, SpeechBubble};
+use godot::engine::{CharacterBody2D, CharacterBody2DVirtual, InputEvent, InputEventMouseButton,Timer, TimerVirtual,Sprite2D};
+use crate::speech_bubble::SpeechBubble;
 
 
 #[derive(GodotClass)]
@@ -27,26 +26,6 @@ impl TimerVirtual for PetTouchTimer{
     }
 
 }
-
-
-
-// #[godot_api]
-// impl Sprite2DVirtual for CyberPet{
-//     fn init(base:Base<Sprite2D>)->Self{
-//         Self { 
-//             speed:100.0,
-//             character_body:,
-//             is_touched:false,
-//             sprite:base
-//          }
-//     }
-
-//     fn ready(&mut self){
-//         self.character_body=self.sprite.get_node_as("CharacterBody");
-//     }
-// }
-
-
 
 #[derive(GodotClass)]
 #[class(base=CharacterBody2D)]
@@ -90,12 +69,11 @@ impl CharacterBody2DVirtual for CyberPetCharacterBody{
                 if sprite.get_rect().has_point(sprite.to_local(mouse_event.get_position())){
 
                     let bubble_scene:Gd<PackedScene>=load("res://custom_res/popup_dialog/SpeechBubble.tscn");
-                    //let mut bubble=bubble_scene.instantiate_as::<SpeechBubble>();
                     self.base.add_child(bubble_scene.instantiate_as::<SpeechBubble>().upcast());
                     let mut bubble:Gd<SpeechBubble>=self.base.get_node_as("SpeechBubble");
                     bubble.set_name("TouchedBubble".into());
                     bubble.bind_mut().popup("摸摸".into(),sprite.get_position()+Vector2::UP*0.5*sprite.get_rect().size.y*sprite.get_scale().y,2.0);
-                    godot_print!("sprite position:{}\nsprite size:{}",sprite.get_position(),sprite.get_rect().size.y);
+                    //godot_print!("sprite position:{}\nsprite size:{}",sprite.get_position(),sprite.get_rect().size.y);
                     let mut touch_timer:Gd<PetTouchTimer>=self.base.get_node_as("Timer");
                     self.is_touched=true;
                     touch_timer.start();
@@ -131,7 +109,4 @@ impl CyberPetCharacterBody{
         
         self.base.move_and_slide();
     }
-
-
-
 }

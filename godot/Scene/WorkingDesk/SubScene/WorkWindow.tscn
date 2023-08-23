@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cbghf2cfbeyag"]
+
+[node name="WorkWindow" type="WorkWindow"]
+
+[node name="BackGround" type="ColorRect" parent="."]
+offset_right = 663.0
+offset_bottom = 375.0
+color = Color(0, 0, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 169.369
+offset_top = 172.299
+offset_right = 504.369
+offset_bottom = 206.299
+
+[node name="Label" type="Label" parent="."]
+offset_left = 173.316
+offset_top = 144.208
+offset_right = 213.316
+offset_bottom = 167.208
+text = "工作中..."
