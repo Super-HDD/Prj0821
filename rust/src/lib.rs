@@ -11,6 +11,7 @@ mod speech_bubble;
 //mod controller;
 mod work_window;
 mod windose;
+mod desk_scene;
 struct Prj0821;
 
 #[gdextension]

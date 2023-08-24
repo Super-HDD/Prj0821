@@ -1,10 +1,10 @@
 use godot::prelude::*;
-use godot::engine::{Node2D,Node2DVirtual, ProgressBar, Tween};
+use godot::engine::{Node2D,Node2DVirtual, ProgressBar, Tween, TextureProgressBar};
 
 #[derive(GodotClass)]
 #[class(base=Node2D)]
 pub struct WorkWindow{
-    progress_bar:Option<Gd<ProgressBar>>,
+    progress_bar:Option<Gd<TextureProgressBar>>,
     tween:Option<Gd<Tween>>,
     #[base]
     base:Base<Node2D>
@@ -30,10 +30,11 @@ impl Node2DVirtual for WorkWindow{
     }
 
     fn ready(&mut self){
-        self.progress_bar=Some(self.base.get_node_as::<ProgressBar>("ProgressBar"));
+        //self.progress_bar=Some(self.base.get_node_as::<ProgressBar>("ProgressBar"));
+        self.progress_bar=Some(self.base.get_node_as::<TextureProgressBar>("TextureProgressBar"));
         self.tween=self.progress_bar.as_mut().unwrap().create_tween();
         self.base.set_visible(true);
-        self.tween.as_mut().unwrap().tween_property(self.base.get_node_as::<ProgressBar>("ProgressBar").upcast(), "value".into(), 100.0.to_variant(), 5.0);
+        self.tween.as_mut().unwrap().tween_property(self.base.get_node_as::<TextureProgressBar>("TextureProgressBar").upcast(), "value".into(), 100.0.to_variant(), 5.0);
         self.tween.as_mut().unwrap().connect("finished".into(), self.base.callable("on_tween_finish"));
         self.tween.as_mut().unwrap().play();
     }

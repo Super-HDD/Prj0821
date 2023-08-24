@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://do62xqevrsyda" path="res://assets/computer/窗口背景.png" id="11_f8ipf"]
 [ext_resource type="Texture2D" uid="uid://5ojn8imathx6" path="res://assets/computer/MainMenu/gongzuo.png" id="12_tqphy"]
 
-[node name="DeskScene" type="Node2D"]
+[node name="DeskScene" type="DeskScene"]
 
 [node name="Desk" type="Sprite2D" parent="."]
 position = Vector2(448, 450)
