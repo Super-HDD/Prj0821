@@ -4,6 +4,7 @@ use time::Time;
 use time::macros::time;
 
 use crate::game_manager::GameManager;
+use crate::player_speech_bubble::PlayerSpeechBubble;
 use crate::work_window::WorkWindow;
 
 #[derive(GodotClass)]
@@ -17,6 +18,7 @@ pub struct Windose{
     _cyber_pet_icon:Option<Gd<TextureButton>>,
     _daka_icon:Option<Gd<TextureButton>>,
     clock_label:Option<Gd<Label>>,
+    dialog_bubble_scene:Gd<PackedScene>,
     //game_manager:Option<Gd<GameManager>>,
     //game_manager_ref:Option<GdMut<'a,GameManager>>,
     #[base]
@@ -36,12 +38,14 @@ impl Node2DVirtual for Windose{
             _daka_icon:None,
             //game_manager:None,
             clock_label: None, 
+            dialog_bubble_scene:PackedScene::new(),
             //game_manager_ref:None,
             base 
         }
     }
 
     fn ready(&mut self){
+        self.dialog_bubble_scene=load("res://Scene/Player/PlayerDialogBubble.tscn");
         self.work_icon=Some(self.base.get_node_as("WorkIcon"));
         self.clock_label=Some(self.base.get_node_as("ClockLabel"));
         let mut game_manager=self.base.get_tree().unwrap().get_root().unwrap().get_node_as::<GameManager>("MyGameManager");
@@ -90,6 +94,10 @@ impl Windose{
         godot_print!("work finished");
         self.is_working=false;
         self.has_worked=true;
+        self.base.add_child(self.dialog_bubble_scene.instantiate_as::<PlayerSpeechBubble>().upcast());
+        let mut player_dialog=self.base.get_node_as::<PlayerSpeechBubble>("PlayerSpeechBubble");
+        player_dialog.bind_mut().set_text_list(array!["工作结束了".into(),"点击离开工位".into()]);
+        player_dialog.bind_mut().popup(Vector2::new(-63.158,576.43));
     }
 
     #[func]

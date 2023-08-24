@@ -71,18 +71,9 @@ impl NodeVirtual for GameManager{
 
 #[godot_api]
 impl GameManager{
-    // #[signal]
-    // fn change_desk_work_finish_time(hour:u8,minute:u8);
 
     #[signal]
     fn time_changed(hour:u8,minute:u8);
-
-    // #[func]
-    // pub fn set_time(&mut self,time_hour:u8,time_minute:u8){
-    //     self.time=Time::from_hms(time_hour,time_minute, 0).unwrap();
-        
-    //     self.base.emit_signal("time_changed".into(), &[]);
-    // }
 
     #[func]
     pub fn get_time_str(&self)->Variant{

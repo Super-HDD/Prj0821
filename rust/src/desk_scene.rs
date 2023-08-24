@@ -23,5 +23,4 @@ impl Node2DVirtual for DeskScene{
             base
         }
     }
-
 }
