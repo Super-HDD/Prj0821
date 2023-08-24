@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://duxsmrd5tp41p"]
+[gd_scene load_steps=14 format=3 uid="uid://duxsmrd5tp41p"]
 
-[ext_resource type="Texture2D" uid="uid://4c14hmidlwlh" path="res://assets/computer/WINDOWS.png" id="1_pa0dh"]
+[ext_resource type="Texture2D" uid="uid://uvvjt6e2gj8p" path="res://assets/desk/computer/IMG_1142.PNG" id="1_vc6p0"]
 [ext_resource type="FontFile" uid="uid://c0vv24o4na82j" path="res://font/中文像素.ttf" id="2_ctliy"]
+[ext_resource type="Texture2D" uid="uid://cxbxs04ym0lw7" path="res://assets/computer/MainMenu/windows背景.png" id="2_yxqi8"]
 [ext_resource type="Texture2D" uid="uid://l6k6fp5pccu" path="res://daka.png" id="3_23wie"]
 [ext_resource type="Texture2D" uid="uid://p3ta8rgwujbk" path="res://Sprite-0002.png" id="4_7p5ae"]
 [ext_resource type="Texture2D" uid="uid://brfpsnatg4eph" path="res://assets/computer/关闭按钮.png" id="5_jpvq6"]
@@ -17,11 +18,18 @@
 
 [node name="Desk" type="Sprite2D" parent="."]
 position = Vector2(448, 450)
-texture = ExtResource("1_pa0dh")
+texture = ExtResource("1_vc6p0")
 
 [node name="Windose" type="Windose" parent="Desk"]
 position = Vector2(-226, -325)
 scale = Vector2(0.759999, 0.889961)
+
+[node name="WindowsBackground" type="TextureRect" parent="Desk/Windose"]
+offset_left = 11.0
+offset_top = 1.0
+offset_right = 670.0
+offset_bottom = 372.0
+texture = ExtResource("2_yxqi8")
 
 [node name="Daka" type="Daka" parent="Desk/Windose"]
 offset_left = 19.7369
@@ -187,6 +195,4 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ctliy")
 text = "工作"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Sprite2D" type="Sprite2D" parent="Desk"]
