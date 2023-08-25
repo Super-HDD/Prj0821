@@ -15,8 +15,8 @@ pub struct Windose{
     work_finish_time:Time,
     work_start_time:Time,
     work_icon:Option<Gd<TextureButton>>,
-    _cyber_pet_icon:Option<Gd<TextureButton>>,
-    _daka_icon:Option<Gd<TextureButton>>,
+    cyber_pet_icon:Gd<TextureButton>,
+    daka_icon:Gd<TextureButton>,
     clock_label:Option<Gd<Label>>,
     dialog_bubble_scene:Gd<PackedScene>,
     //game_manager:Option<Gd<GameManager>>,
@@ -34,8 +34,8 @@ impl Node2DVirtual for Windose{
             work_finish_time:time!(9:00),
             work_start_time:time!(0:00),
             work_icon: None,
-            _cyber_pet_icon:None, 
-            _daka_icon:None,
+            cyber_pet_icon:TextureButton::new_alloc(), 
+            daka_icon:TextureButton::new_alloc(),
             //game_manager:None,
             clock_label: None, 
             dialog_bubble_scene:PackedScene::new(),
@@ -51,19 +51,10 @@ impl Node2DVirtual for Windose{
         let mut game_manager=self.base.get_tree().unwrap().get_root().unwrap().get_node_as::<GameManager>("MyGameManager");
         game_manager.connect("time_changed".into(), self.base.callable("on_time_changed"));
         self.work_icon.as_mut().unwrap().connect("pressed".into(),self.base.callable("on_work_icon_pressed"));
-        //self.game_manager_ref=Some(self.game_manager.as_mut().unwrap().bind_mut());
 
         self.clock_label.as_mut().unwrap().set_text(game_manager.bind_mut().get_time_str().try_to::<GodotString>().unwrap());
     }
 
-    // fn process(&mut self,_delta:f64){
-    //     let input=Input::singleton();
-    //     let mut scene_tree=self.base.get_tree().unwrap();
-    //     if self.has_worked && input.is_action_just_pressed(StringName::from("left_desk")){
-    //         godot_print!("has_singleton:{}",Engine::singleton().has_singleton("GameManager".into()));
-    //         self.base.emit_signal("left_desk".into(), &[]);
-    //     }
-    // }
 }
 
 #[godot_api]

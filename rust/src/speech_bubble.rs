@@ -29,7 +29,7 @@ impl Node2DVirtual for SpeechBubble{
     fn ready(&mut self){
 
         self.anchor=Some(self.base.get_node_as("Anchor"));
-        self.label=Some(self.base.get_node_as("Anchor/Text"));
+        self.label=Some(self.base.get_node_as("Anchor/BubbleBg/Text"));
         self.bg=Some(self.anchor.as_ref().unwrap().get_node_as("BubbleBg"));
         self.base.set_visible(false);
         self.label.as_mut().unwrap().set_text("Hello".into());
@@ -45,16 +45,21 @@ impl SpeechBubble{
     fn bubble_vanished();
 
     #[func]
-    pub fn popup(&mut self,text:GodotString,position:Vector2,wait_time:f64){
+    pub fn popup(&mut self,text:GodotString,position:Vector2,wait_time:f64,is_text_flip:bool){
         self.base.set_position(position);
+
 
         //自适应文字大小
         self.label.as_mut().unwrap().set_text(text);
         let mut text_size=Vector2::new(self.label.as_ref().unwrap().get_content_width() as f32,self.label.as_ref().unwrap().get_content_height() as f32);
         text_size+=self.margin_offset;
         self.bg.as_mut().unwrap().set_size(text_size);
-
         godot_print!("text size:{}",text_size);
+        let label_size=self.label.as_mut().unwrap().get_size();
+        self.label.as_mut().unwrap().set_pivot_offset(label_size/2.0 as f32);
+        if is_text_flip {
+            self.label.as_mut().unwrap().set_scale(Vector2::new(-1.0,-1.0));
+        }
         //对话气泡可见
         self.base.set_visible(true);
 

@@ -1,6 +1,6 @@
 use godot::engine::global::MouseButton;
 use godot::prelude::*;
-use godot::engine::{CharacterBody2D, CharacterBody2DVirtual, InputEvent, InputEventMouseButton,Timer, TimerVirtual,Sprite2D};
+use godot::engine::{CharacterBody2D, CharacterBody2DVirtual, InputEvent, InputEventMouseButton,Timer, TimerVirtual,AnimatedSprite2D,Sprite2D};
 use crate::speech_bubble::SpeechBubble;
 
 
@@ -24,7 +24,6 @@ impl TimerVirtual for PetTouchTimer{
         let pet:Gd<CyberPetCharacterBody>=self.base.get_node_as("../");
         self.base.connect("timeout".into(), Callable::from_object_method(pet, "on_touch_enough"));
     }
-
 }
 
 #[derive(GodotClass)]
@@ -34,6 +33,7 @@ pub struct CyberPetCharacterBody{
     speed:real,
     is_touched:bool,
     is_moving_right:bool,
+    sprite:Gd<AnimatedSprite2D>,
     #[base]
     base:Base<CharacterBody2D>
 }
@@ -47,8 +47,13 @@ impl CharacterBody2DVirtual for CyberPetCharacterBody{
             speed: 50.0, 
             is_touched: false, 
             is_moving_right:true,
+            sprite:AnimatedSprite2D::new_alloc(),
             base:base 
         }
+    }
+
+    fn ready(&mut self){
+        self.sprite=self.base.get_node_as("AnimatedSprite2D");
     }
 
 
@@ -68,12 +73,13 @@ impl CharacterBody2DVirtual for CyberPetCharacterBody{
                 let sprite:Gd<Sprite2D>=self.base.get_node_as("Sprite2D");
                 if sprite.get_rect().has_point(sprite.to_local(mouse_event.get_position())){
 
-                    let bubble_scene:Gd<PackedScene>=load("res://custom_res/popup_dialog/SpeechBubble.tscn");
+                    let bubble_scene:Gd<PackedScene>=load("res://Scene/PopupDialog/SpeechBubble.tscn");
                     self.base.add_child(bubble_scene.instantiate_as::<SpeechBubble>().upcast());
                     let mut bubble:Gd<SpeechBubble>=self.base.get_node_as("SpeechBubble");
+
                     bubble.set_name("TouchedBubble".into());
-                    bubble.bind_mut().popup("摸摸".into(),sprite.get_position()+Vector2::UP*0.5*sprite.get_rect().size.y*sprite.get_scale().y,2.0);
-                    //godot_print!("sprite position:{}\nsprite size:{}",sprite.get_position(),sprite.get_rect().size.y);
+                    bubble.bind_mut().popup("摸摸".into(),sprite.get_position()+Vector2::UP*0.5*sprite.get_rect().size.y*sprite.get_scale().y,2.0,false);
+                    
                     let mut touch_timer:Gd<PetTouchTimer>=self.base.get_node_as("Timer");
                     self.is_touched=true;
                     touch_timer.start();

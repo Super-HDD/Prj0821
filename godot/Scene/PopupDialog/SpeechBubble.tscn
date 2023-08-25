@@ -13,12 +13,14 @@ offset_bottom = -1.0
 texture = ExtResource("1_4h3pq")
 expand_mode = 1
 
-[node name="Text" type="RichTextLabel" parent="Anchor"]
+[node name="Text" type="RichTextLabel" parent="Anchor/BubbleBg"]
 clip_contents = false
-offset_left = 24.0
-offset_top = -35.0
-offset_right = 43.0
-offset_bottom = -2.0
+layout_mode = 0
+offset_left = 25.0
+offset_top = 1.0
+offset_right = 44.0
+offset_bottom = 24.0
+pivot_offset = Vector2(9.5, 11.5)
 bbcode_enabled = true
 text = "aa"
 fit_content = true

@@ -1,9 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://7htqmw0dbe7j"]
+[gd_scene load_steps=7 format=3 uid="uid://7htqmw0dbe7j"]
 
+[ext_resource type="Texture2D" uid="uid://0khcwe7rpae7" path="res://assets/computer/CyberPetWindow/Cat/Walk/catwalk2.png" id="2_bi1kp"]
 [ext_resource type="Texture2D" uid="uid://luctcpm5jxi1" path="res://icon.svg" id="2_uxj2f"]
+[ext_resource type="Texture2D" uid="uid://2itn0aq343pl" path="res://assets/computer/CyberPetWindow/Cat/Walk/catwalk1.png" id="3_qxjhe"]
+[ext_resource type="Texture2D" uid="uid://c46mc7u40nbxv" path="res://assets/computer/CyberPetWindow/Cat/Sit/cat.png" id="4_a6nej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fhka"]
 size = Vector2(53.9474, 44.9456)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s4d81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bi1kp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qxjhe")
+}],
+"loop": true,
+"name": &"cat_walk",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"love",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a6nej")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 1.0
+}]
 
 [node name="CyberPetCharacterBody" type="CyberPetCharacterBody"]
 position = Vector2(58.3257, 8.49192)
@@ -19,3 +49,7 @@ shape = SubResource("RectangleShape2D_1fhka")
 
 [node name="Timer" type="PetTouchTimer" parent="."]
 wait_time = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s4d81")
+animation = &"sit"

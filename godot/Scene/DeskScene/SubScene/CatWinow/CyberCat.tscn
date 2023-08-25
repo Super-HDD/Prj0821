@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://o8u6c8eehw0f"]
+
+[ext_resource type="Texture2D" uid="uid://cu2dvho23tnjn" path="res://assets/computer/CyberPetWindow/Cat/Love/catlove1.png" id="1_xy1l3"]
+[ext_resource type="Texture2D" uid="uid://boeqm1wki2fng" path="res://assets/computer/CyberPetWindow/Cat/Love/catlove2.png" id="2_e83t2"]
+[ext_resource type="Texture2D" uid="uid://c46mc7u40nbxv" path="res://assets/computer/CyberPetWindow/Cat/Sit/cat.png" id="3_fy1wr"]
+[ext_resource type="Texture2D" uid="uid://0khcwe7rpae7" path="res://assets/computer/CyberPetWindow/Cat/Walk/catwalk2.png" id="4_7nsum"]
+[ext_resource type="Texture2D" uid="uid://2itn0aq343pl" path="res://assets/computer/CyberPetWindow/Cat/Walk/catwalk1.png" id="5_pfuyb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhm0y"]
+atlas = ExtResource("1_xy1l3")
+region = Rect2(63, 135, 63, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6oje"]
+atlas = ExtResource("2_e83t2")
+region = Rect2(63, 135, 63, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kwve"]
+atlas = ExtResource("3_fy1wr")
+region = Rect2(63, 135, 63, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1h4b"]
+atlas = ExtResource("4_7nsum")
+region = Rect2(53, 135, 63, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vcuw"]
+atlas = ExtResource("5_pfuyb")
+region = Rect2(53, 135, 63, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iw0mj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhm0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6oje")
+}],
+"loop": true,
+"name": &"love",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kwve")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1h4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vcuw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0fid"]
+size = Vector2(60, 40)
+
+[node name="CharacterBody2D" type="CyberCat"]
+input_pickable = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iw0mj")
+animation = &"walk"
+centered = false
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31, 23)
+shape = SubResource("RectangleShape2D_r0fid")

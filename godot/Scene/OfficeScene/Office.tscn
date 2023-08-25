@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwxfh25gcituv"]
+[gd_scene load_steps=6 format=3 uid="uid://dwxfh25gcituv"]
 
 [ext_resource type="Texture2D" uid="uid://d1nisikvc1c2u" path="res://assets/OfficeScene/BackGround/办公室背景.PNG" id="1_7jhr0"]
 [ext_resource type="Texture2D" uid="uid://bcle2oajq7fcy" path="res://assets/OfficeScene/BackGround/办公室老板门.PNG" id="2_35w0h"]
 [ext_resource type="Texture2D" uid="uid://c3gqvr1kvikl4" path="res://assets/OfficeScene/BackGround/办公室物件.PNG" id="3_3yvqr"]
 [ext_resource type="PackedScene" uid="uid://bctwti13kfa8y" path="res://Scene/OfficeScene/SubScene/DeskCollegue.tscn" id="4_8qc08"]
+[ext_resource type="Texture2D" uid="uid://ggw7qu5eau23" path="res://assets/OfficeScene/OfficeDeskCollegue/DeskWoman.PNG" id="5_fjh0j"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,8 +27,11 @@ region_rect = Rect2(611, 808, 123, 61)
 texture = ExtResource("3_3yvqr")
 centered = false
 
-[node name="DeskCollegue" parent="." instance=ExtResource("4_8qc08")]
+[node name="DeskCollegue1" parent="." instance=ExtResource("4_8qc08")]
 position = Vector2(523, 736)
+
+[node name="Sprite2D" parent="DeskCollegue1" index="0"]
+texture = ExtResource("5_fjh0j")
 
 [node name="DeskCollegue2" parent="." instance=ExtResource("4_8qc08")]
 position = Vector2(523, 622)
@@ -67,3 +71,5 @@ rotation = 3.14159
 [node name="DeskCollegue12" parent="." instance=ExtResource("4_8qc08")]
 position = Vector2(383, 279)
 rotation = 3.14159
+
+[editable path="DeskCollegue1"]

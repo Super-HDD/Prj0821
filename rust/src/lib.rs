@@ -12,7 +12,11 @@ mod windose;
 mod desk_scene;
 mod player_speech_bubble;
 mod desk_collegue;
+mod office_scene;
 mod player;
+
+//------------remake-------------
+mod cyber_cat;
 struct Prj0821;
 
 #[gdextension]

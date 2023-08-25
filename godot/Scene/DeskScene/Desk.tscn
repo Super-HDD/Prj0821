@@ -11,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://deoe6jlhnpqpq" path="res://assets/computer/MainMenu/dianzichongwu.png" id="8_4qit2"]
 [ext_resource type="Texture2D" uid="uid://cf7oovuvwimpa" path="res://assets/computer/CyberPetWindow/框.png" id="9_fkgk5"]
 [ext_resource type="PackedScene" uid="uid://7htqmw0dbe7j" path="res://custom_res/CyberPet/CyberPet.tscn" id="10_v2dv2"]
-[ext_resource type="Texture2D" uid="uid://do62xqevrsyda" path="res://assets/computer/窗口背景.png" id="11_f8ipf"]
 [ext_resource type="Texture2D" uid="uid://5ojn8imathx6" path="res://assets/computer/MainMenu/gongzuo.png" id="12_tqphy"]
 [ext_resource type="Texture2D" uid="uid://xkpy2vrtq8ql" path="res://assets/desk/computer/IMG_1139.PNG" id="14_q42bb"]
+[ext_resource type="Texture2D" uid="uid://ceynwsgkkk8xj" path="res://assets/computer/CyberPetWindow/maofang.png" id="15_o36a0"]
 [ext_resource type="Texture2D" uid="uid://c2l8mhv18s2s" path="res://assets/desk/computer/IMG_1156.PNG" id="15_vteg8"]
 [ext_resource type="Texture2D" uid="uid://d31ekq3j76ktv" path="res://assets/desk/手.PNG" id="16_38n22"]
 
@@ -145,6 +145,7 @@ theme_override_fonts/font = ExtResource("2_ctliy")
 text = "CyberPet"
 
 [node name="CyberPetWindow" type="Control" parent="Desk/Windose"]
+visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -177,12 +178,12 @@ polygon = PackedVector2Array(-1.487, 1.64813, -1.487, 175.128, 402.186, 176.269,
 
 [node name="TextureRect2" type="TextureRect" parent="Desk/Windose/CyberPetWindow"]
 layout_mode = 0
-offset_left = -4.14276
-offset_top = -47.4284
-offset_right = 403.857
-offset_bottom = 179.572
+offset_left = -3.0
+offset_top = -35.0
+offset_right = 405.0
+offset_bottom = 178.0
 mouse_filter = 2
-texture = ExtResource("11_f8ipf")
+texture = ExtResource("15_o36a0")
 
 [node name="CloseButton" type="DakaCloseButton" parent="Desk/Windose/CyberPetWindow"]
 layout_mode = 0
