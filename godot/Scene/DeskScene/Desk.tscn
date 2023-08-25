@@ -1,6 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://duxsmrd5tp41p"]
+[gd_scene load_steps=17 format=3 uid="uid://duxsmrd5tp41p"]
 
-[ext_resource type="Texture2D" uid="uid://uvvjt6e2gj8p" path="res://assets/desk/computer/IMG_1142.PNG" id="1_vc6p0"]
+[ext_resource type="Texture2D" uid="uid://cc5v8fbrnuigi" path="res://assets/desk/computer/IMG_1135.PNG" id="1_8in63"]
 [ext_resource type="FontFile" uid="uid://c0vv24o4na82j" path="res://font/中文像素.ttf" id="2_ctliy"]
 [ext_resource type="Texture2D" uid="uid://cxbxs04ym0lw7" path="res://assets/computer/MainMenu/windows背景.png" id="2_yxqi8"]
 [ext_resource type="Texture2D" uid="uid://l6k6fp5pccu" path="res://daka.png" id="3_23wie"]
@@ -13,23 +13,48 @@
 [ext_resource type="PackedScene" uid="uid://7htqmw0dbe7j" path="res://custom_res/CyberPet/CyberPet.tscn" id="10_v2dv2"]
 [ext_resource type="Texture2D" uid="uid://do62xqevrsyda" path="res://assets/computer/窗口背景.png" id="11_f8ipf"]
 [ext_resource type="Texture2D" uid="uid://5ojn8imathx6" path="res://assets/computer/MainMenu/gongzuo.png" id="12_tqphy"]
+[ext_resource type="Texture2D" uid="uid://xkpy2vrtq8ql" path="res://assets/desk/computer/IMG_1139.PNG" id="14_q42bb"]
+[ext_resource type="Texture2D" uid="uid://c2l8mhv18s2s" path="res://assets/desk/computer/IMG_1156.PNG" id="15_vteg8"]
+[ext_resource type="Texture2D" uid="uid://d31ekq3j76ktv" path="res://assets/desk/手.PNG" id="16_38n22"]
 
 [node name="DeskScene" type="DeskScene"]
 
 [node name="Desk" type="Sprite2D" parent="."]
 position = Vector2(448, 450)
-texture = ExtResource("1_vc6p0")
+texture = ExtResource("1_8in63")
+
+[node name="WindowsBackground" type="TextureRect" parent="Desk"]
+offset_left = -214.0
+offset_top = -331.0
+offset_right = 291.0
+offset_bottom = 5.0
+texture = ExtResource("2_yxqi8")
+
+[node name="DeskBg1" type="TextureRect" parent="Desk"]
+offset_left = -448.0
+offset_top = -450.0
+offset_right = 452.0
+offset_bottom = 450.0
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("14_q42bb")
+
+[node name="DeskBg2" type="TextureRect" parent="Desk"]
+offset_left = -447.0
+offset_top = -453.0
+offset_right = 453.0
+offset_bottom = 447.0
+mouse_filter = 2
+texture = ExtResource("15_vteg8")
+
+[node name="Mouse" type="Sprite2D" parent="Desk"]
+position = Vector2(84, 221)
+scale = Vector2(1, 1.031)
+texture = ExtResource("16_38n22")
 
 [node name="Windose" type="Windose" parent="Desk"]
 position = Vector2(-226, -325)
 scale = Vector2(0.759999, 0.889961)
-
-[node name="WindowsBackground" type="TextureRect" parent="Desk/Windose"]
-offset_left = 11.0
-offset_top = 1.0
-offset_right = 670.0
-offset_bottom = 372.0
-texture = ExtResource("2_yxqi8")
 
 [node name="Daka" type="Daka" parent="Desk/Windose"]
 offset_left = 19.7369
@@ -120,7 +145,6 @@ theme_override_fonts/font = ExtResource("2_ctliy")
 text = "CyberPet"
 
 [node name="CyberPetWindow" type="Control" parent="Desk/Windose"]
-visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
@@ -194,5 +218,3 @@ offset_bottom = 23.019
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ctliy")
 text = "工作"
-
-[node name="Sprite2D" type="Sprite2D" parent="Desk"]

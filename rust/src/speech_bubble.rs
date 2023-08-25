@@ -18,7 +18,7 @@ impl Node2DVirtual for SpeechBubble{
     fn init(base:Base<Node2D>)->Self{
      
         Self { 
-            margin_offset:Vector2::new(30.0,10.0),
+            margin_offset:Vector2::new(50.0,10.0),
             label:None, 
             bg:None, 
             anchor:None, 
@@ -41,6 +41,9 @@ impl Node2DVirtual for SpeechBubble{
 
 #[godot_api]
 impl SpeechBubble{
+    #[signal]
+    fn bubble_vanished();
+
     #[func]
     pub fn popup(&mut self,text:GodotString,position:Vector2,wait_time:f64){
         self.base.set_position(position);
@@ -51,7 +54,7 @@ impl SpeechBubble{
         text_size+=self.margin_offset;
         self.bg.as_mut().unwrap().set_size(text_size);
 
-        //godot_print!("text size:{}",text_size);
+        godot_print!("text size:{}",text_size);
         //对话气泡可见
         self.base.set_visible(true);
 
@@ -69,6 +72,7 @@ impl SpeechBubble{
     #[func]
     fn on_time_out(&mut self){
         godot_print!("time's up");
+        self.base.emit_signal("bubble_vanished".into(),&[]);
         self.base.queue_free();
         
     }

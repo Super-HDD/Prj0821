@@ -11,6 +11,8 @@ mod work_window;
 mod windose;
 mod desk_scene;
 mod player_speech_bubble;
+mod desk_collegue;
+mod player;
 struct Prj0821;
 
 #[gdextension]

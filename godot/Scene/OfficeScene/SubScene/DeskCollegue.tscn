@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bctwti13kfa8y"]
+
+[ext_resource type="Texture2D" uid="uid://bqgvrqpswfooh" path="res://assets/OfficeScene/OfficeDeskCollegue/DeskMan.PNG" id="1_2mvwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6wvn"]
+size = Vector2(139, 116)
+
+[node name="DeskCollegue" type="DeskCollegue"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2mvwv")
+region_enabled = true
+region_rect = Rect2(452.727, 661.147, 138.602, 119.08)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_o6wvn")

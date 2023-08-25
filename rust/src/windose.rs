@@ -81,7 +81,7 @@ impl Windose{
             let game_manager=self.base.get_tree().unwrap().get_root().unwrap().get_node_as::<GameManager>("MyGameManager");
             self.base.add_child(work_window_scene.instantiate_as::<WorkWindow>().upcast());
             let mut work_window=self.base.get_node_as::<WorkWindow>("WorkWindow");
-            work_window.set_position(Vector2::new(7.895,-4.495));
+            work_window.set_position(Vector2::new(11.842,-6.742));
             work_window.set_z_index(3);
             work_window.connect("work_finished".into(),self.base.callable("on_work_finished"));
             work_window.connect("work_finished".into(),game_manager.callable("on_desk_work_finished"));

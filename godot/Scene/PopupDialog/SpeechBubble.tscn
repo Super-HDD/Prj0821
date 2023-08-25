@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://txq44yckm1pb"]
+
+[ext_resource type="Texture2D" uid="uid://bues6q6bt8025" path="res://Scene/PopupDialog/对话框1.png" id="1_4h3pq"]
+
+[node name="SpeechBubble" type="SpeechBubble"]
+
+[node name="Anchor" type="Node2D" parent="."]
+
+[node name="BubbleBg" type="TextureRect" parent="Anchor"]
+offset_top = -34.0
+offset_right = 126.0
+offset_bottom = -1.0
+texture = ExtResource("1_4h3pq")
+expand_mode = 1
+
+[node name="Text" type="RichTextLabel" parent="Anchor"]
+clip_contents = false
+offset_left = 24.0
+offset_top = -35.0
+offset_right = 43.0
+offset_bottom = -2.0
+bbcode_enabled = true
+text = "aa"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Timer" type="Timer" parent="."]
