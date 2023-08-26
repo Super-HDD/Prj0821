@@ -1,19 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://duxsmrd5tp41p"]
+[gd_scene load_steps=6 format=3 uid="uid://duxsmrd5tp41p"]
 
 [ext_resource type="Texture2D" uid="uid://cc5v8fbrnuigi" path="res://assets/desk/computer/IMG_1135.PNG" id="1_8in63"]
-[ext_resource type="FontFile" uid="uid://c0vv24o4na82j" path="res://font/中文像素.ttf" id="2_ctliy"]
-[ext_resource type="Texture2D" uid="uid://cxbxs04ym0lw7" path="res://assets/computer/MainMenu/windows背景.png" id="2_yxqi8"]
-[ext_resource type="Texture2D" uid="uid://l6k6fp5pccu" path="res://daka.png" id="3_23wie"]
-[ext_resource type="Texture2D" uid="uid://p3ta8rgwujbk" path="res://Sprite-0002.png" id="4_7p5ae"]
-[ext_resource type="Texture2D" uid="uid://brfpsnatg4eph" path="res://assets/computer/关闭按钮.png" id="5_jpvq6"]
-[ext_resource type="Texture2D" uid="uid://dxna06wpk04ui" path="res://assets/computer/窄窗口.png" id="6_ksmhc"]
-[ext_resource type="Texture2D" uid="uid://drwm2lgfyvgvn" path="res://assets/computer/窄窗口背景.png" id="7_b2u6f"]
-[ext_resource type="Texture2D" uid="uid://deoe6jlhnpqpq" path="res://assets/computer/MainMenu/dianzichongwu.png" id="8_4qit2"]
-[ext_resource type="Texture2D" uid="uid://cf7oovuvwimpa" path="res://assets/computer/CyberPetWindow/框.png" id="9_fkgk5"]
-[ext_resource type="PackedScene" uid="uid://7htqmw0dbe7j" path="res://custom_res/CyberPet/CyberPet.tscn" id="10_v2dv2"]
-[ext_resource type="Texture2D" uid="uid://5ojn8imathx6" path="res://assets/computer/MainMenu/gongzuo.png" id="12_tqphy"]
+[ext_resource type="PackedScene" uid="uid://codq85a6ynb17" path="res://Scene/DeskScene/SubScene/Windose.tscn" id="3_epky5"]
 [ext_resource type="Texture2D" uid="uid://xkpy2vrtq8ql" path="res://assets/desk/computer/IMG_1139.PNG" id="14_q42bb"]
-[ext_resource type="Texture2D" uid="uid://ceynwsgkkk8xj" path="res://assets/computer/CyberPetWindow/maofang.png" id="15_o36a0"]
 [ext_resource type="Texture2D" uid="uid://c2l8mhv18s2s" path="res://assets/desk/computer/IMG_1156.PNG" id="15_vteg8"]
 [ext_resource type="Texture2D" uid="uid://d31ekq3j76ktv" path="res://assets/desk/手.PNG" id="16_38n22"]
 
@@ -23,12 +12,12 @@
 position = Vector2(448, 450)
 texture = ExtResource("1_8in63")
 
-[node name="WindowsBackground" type="TextureRect" parent="Desk"]
-offset_left = -214.0
-offset_top = -331.0
-offset_right = 291.0
-offset_bottom = 5.0
-texture = ExtResource("2_yxqi8")
+[node name="Mouse" type="Sprite2D" parent="Desk"]
+position = Vector2(81, 228)
+scale = Vector2(1, 1.031)
+texture = ExtResource("16_38n22")
+
+[node name="Windose" parent="Desk" instance=ExtResource("3_epky5")]
 
 [node name="DeskBg1" type="TextureRect" parent="Desk"]
 offset_left = -448.0
@@ -46,176 +35,3 @@ offset_right = 453.0
 offset_bottom = 447.0
 mouse_filter = 2
 texture = ExtResource("15_vteg8")
-
-[node name="Mouse" type="Sprite2D" parent="Desk"]
-position = Vector2(84, 221)
-scale = Vector2(1, 1.031)
-texture = ExtResource("16_38n22")
-
-[node name="Windose" type="Windose" parent="Desk"]
-position = Vector2(-226, -325)
-scale = Vector2(0.759999, 0.889961)
-
-[node name="Daka" type="Daka" parent="Desk/Windose"]
-offset_left = 19.7369
-offset_top = 7.86551
-offset_right = 83.7369
-offset_bottom = 117.866
-action_mode = 0
-texture_normal = ExtResource("3_23wie")
-texture_pressed = ExtResource("4_7p5ae")
-texture_hover = ExtResource("4_7p5ae")
-
-[node name="Label" type="Label" parent="Desk/Windose/Daka"]
-layout_mode = 0
-offset_left = 15.7895
-offset_top = 60.6768
-offset_right = 55.7895
-offset_bottom = 83.6768
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ctliy")
-text = "打卡"
-
-[node name="DakaDialog" type="Control" parent="Desk/Windose/Daka"]
-visible = false
-anchors_preset = 0
-offset_left = 264.0
-offset_top = 53.0
-offset_right = 400.0
-offset_bottom = 278.0
-
-[node name="CloseButton" type="DakaCloseButton" parent="Desk/Windose/Daka/DakaDialog"]
-z_index = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.773
-anchor_top = 0.051
-anchor_right = 0.773
-anchor_bottom = 0.051
-offset_left = 13.7211
-offset_top = -6.04545
-offset_right = 23.7212
-offset_bottom = 3.95455
-texture_normal = ExtResource("5_jpvq6")
-
-[node name="TextureRect" type="TextureRect" parent="Desk/Windose/Daka/DakaDialog"]
-visibility_layer = 1022
-z_index = 1
-layout_mode = 0
-offset_left = -4.2104
-offset_top = -3.55965
-offset_right = 133.79
-offset_bottom = 226.44
-mouse_filter = 2
-texture = ExtResource("6_ksmhc")
-
-[node name="TextureRect2" type="TextureRect" parent="Desk/Windose/Daka/DakaDialog"]
-layout_mode = 0
-offset_left = -5.5261
-offset_top = -2.43599
-offset_right = 132.474
-offset_bottom = 227.564
-mouse_filter = 2
-texture = ExtResource("7_b2u6f")
-
-[node name="Label" type="Label" parent="Desk/Windose/Daka/DakaDialog"]
-layout_mode = 0
-offset_left = 20.2109
-offset_top = 51.499
-offset_right = 106.211
-offset_bottom = 84.499
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ctliy")
-
-[node name="PetButton" type="PetButton" parent="Desk/Windose"]
-offset_left = 21.0526
-offset_top = 97.7571
-offset_right = 85.0526
-offset_bottom = 207.757
-texture_normal = ExtResource("8_4qit2")
-
-[node name="CyberPet" type="Label" parent="Desk/Windose/PetButton"]
-layout_mode = 0
-offset_left = -6.57892
-offset_top = 57.3059
-offset_right = 79.4211
-offset_bottom = 80.3059
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ctliy")
-text = "CyberPet"
-
-[node name="CyberPetWindow" type="Control" parent="Desk/Windose"]
-visible = false
-z_index = 1
-layout_mode = 3
-anchors_preset = 0
-offset_left = 162.0
-offset_top = 104.0
-offset_right = 561.0
-offset_bottom = 276.0
-scale = Vector2(0.990903, 0.984518)
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="Desk/Windose/CyberPetWindow"]
-z_index = 1
-layout_mode = 0
-offset_left = -282.895
-offset_top = -217.987
-offset_right = 617.105
-offset_bottom = 682.013
-mouse_filter = 2
-texture = ExtResource("9_fkgk5")
-
-[node name="CyberPetCharacterBody" parent="Desk/Windose/CyberPetWindow/TextureRect" instance=ExtResource("10_v2dv2")]
-
-[node name="WindowBottomColl" type="StaticBody2D" parent="Desk/Windose/CyberPetWindow"]
-position = Vector2(-221.914, -30.3087)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Desk/Windose/CyberPetWindow/WindowBottomColl"]
-position = Vector2(223.083, 29.6742)
-build_mode = 1
-polygon = PackedVector2Array(-1.487, 1.64813, -1.487, 175.128, 402.186, 176.269, 400.858, -36.0152, -1.487, -34.8739)
-
-[node name="TextureRect2" type="TextureRect" parent="Desk/Windose/CyberPetWindow"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = -35.0
-offset_right = 405.0
-offset_bottom = 178.0
-mouse_filter = 2
-texture = ExtResource("15_o36a0")
-
-[node name="CloseButton" type="DakaCloseButton" parent="Desk/Windose/CyberPetWindow"]
-layout_mode = 0
-offset_left = 386.251
-offset_top = -45.1458
-offset_right = 396.251
-offset_bottom = -35.1458
-texture_normal = ExtResource("5_jpvq6")
-
-[node name="ClockLabel" type="Label" parent="Desk/Windose"]
-offset_left = 625.001
-offset_top = 347.206
-offset_right = 680.001
-offset_bottom = 373.206
-text = "7:59"
-
-[node name="WorkIcon" type="TextureButton" parent="Desk/Windose"]
-offset_left = 22.3685
-offset_top = 179.783
-offset_right = 86.3685
-offset_bottom = 243.783
-texture_normal = ExtResource("12_tqphy")
-
-[node name="Label" type="Label" parent="Desk/Windose/WorkIcon"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.86
-anchor_bottom = 0.86
-offset_left = 10.5262
-offset_top = 0.0189285
-offset_right = 50.5262
-offset_bottom = 23.019
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_ctliy")
-text = "工作"

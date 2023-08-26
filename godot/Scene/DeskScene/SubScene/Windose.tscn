@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://codq85a6ynb17"]
+
+[ext_resource type="Texture2D" uid="uid://cxbxs04ym0lw7" path="res://assets/computer/MainMenu/windows背景.png" id="1_risej"]
+[ext_resource type="Texture2D" uid="uid://l6k6fp5pccu" path="res://assets/computer/MainMenu/daka.png" id="2_2hyln"]
+[ext_resource type="FontFile" uid="uid://c0vv24o4na82j" path="res://font/中文像素.ttf" id="4_k6jtn"]
+[ext_resource type="Texture2D" uid="uid://5ojn8imathx6" path="res://assets/computer/MainMenu/gongzuo.png" id="8_kc5q0"]
+[ext_resource type="Texture2D" uid="uid://deoe6jlhnpqpq" path="res://assets/computer/MainMenu/dianzichongwu.png" id="9_off27"]
+
+[node name="Windose" type="Windose"]
+position = Vector2(-222, -332)
+
+[node name="WindowsBackground" type="TextureRect" parent="."]
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 513.0
+offset_bottom = 337.0
+texture = ExtResource("1_risej")
+
+[node name="ClockLabel" type="Label" parent="."]
+offset_left = 467.0
+offset_top = 314.0
+offset_right = 522.0
+offset_bottom = 340.0
+text = "7:59"
+
+[node name="WorkIcon" type="TextureButton" parent="."]
+offset_left = 19.0
+offset_top = 166.0
+offset_right = 83.0
+offset_bottom = 230.0
+texture_normal = ExtResource("8_kc5q0")
+
+[node name="Label" type="Label" parent="WorkIcon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.86
+anchor_bottom = 0.86
+offset_left = 10.5262
+offset_top = 0.0189285
+offset_right = 50.5262
+offset_bottom = 23.019
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_k6jtn")
+text = "工作"
+
+[node name="CatIcon" type="TextureButton" parent="."]
+offset_left = 18.0
+offset_top = 82.0
+offset_right = 82.0
+offset_bottom = 146.0
+texture_normal = ExtResource("9_off27")
+
+[node name="Label" type="Label" parent="CatIcon"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 57.0
+offset_right = 69.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "CyberCat"
+
+[node name="DakaIcon" type="TextureButton" parent="."]
+offset_left = 18.0
+offset_top = 3.0
+offset_right = 82.0
+offset_bottom = 67.0
+texture_normal = ExtResource("2_2hyln")
+
+[node name="Label" type="Label" parent="DakaIcon"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 59.0
+offset_right = 55.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "打卡"

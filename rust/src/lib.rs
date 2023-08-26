@@ -16,7 +16,10 @@ mod office_scene;
 mod player;
 
 //------------remake-------------
+//------------办公桌场景----------
+mod cat_window;
 mod cyber_cat;
+
 struct Prj0821;
 
 #[gdextension]

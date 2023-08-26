@@ -2,10 +2,6 @@ use godot::engine::global::MouseButton;
 use godot::prelude::*;
 use godot::engine::{CharacterBody2D,CharacterBody2DVirtual, AnimatedSprite2D, Timer,InputEventMouseButton,InputEvent};
 use rand::Rng;
-use std::num;
-
-const LEFT_BORDER_X:real=0.0;
-const RIGHT_BORDER_X:real=900.0;
 
 const MIN_SIT_TIME:f64=1.0;
 const MAX_SIT_TIME:f64=3.0;
@@ -26,6 +22,8 @@ pub enum CyberCatState{
 #[class(base=CharacterBody2D)]
 pub struct CyberCat{
     
+    left_border_x:f32,
+    right_border_x:f32,
     is_in_event:bool,
     is_cursor_inside_touch_area:bool,
     event_buffer:Array<u8>,
@@ -48,6 +46,8 @@ pub struct CyberCat{
 impl CharacterBody2DVirtual for CyberCat{
     fn init(base:Base<CharacterBody2D>)->Self{
         Self {
+            left_border_x:0.0,
+            right_border_x:10.0,
             is_in_event:false,
             is_cursor_inside_touch_area:false,
             event_buffer:Array::new(),
@@ -66,6 +66,10 @@ impl CharacterBody2DVirtual for CyberCat{
     }
 
     fn ready(&mut self){
+        //加载编辑器数据
+        self.left_border_x=self.base.get_meta("LeftBorderX".into()).to::<f32>();
+        self.right_border_x=self.base.get_meta("RightBorderX".into()).to::<f32>();
+
         //加载子节点
         self.anim=self.base.get_node_as("AnimatedSprite2D");
         self.timer=self.base.get_node_as("Timer");
@@ -99,7 +103,7 @@ impl CharacterBody2DVirtual for CyberCat{
 
         //如果正在移动，判定是否到达指定位置
         if self.is_walking{
-            godot_print!("base_x:{},anim_x{},distance:{}",self.base.get_position().x,self.anim.get_position().x,(self.base.get_position().x-self.dest_x).abs());
+            //godot_print!("base_x:{},anim_x{},distance:{}",self.base.get_position().x,self.anim.get_position().x,(self.base.get_position().x-self.dest_x).abs());
             if (self.base.get_position().x-self.dest_x).abs() <= DEST_MARGIN{
                 self.on_arrive_dest();
             }
@@ -139,7 +143,7 @@ impl CyberCat {
     #[func]
     fn walk_to(&mut self,dest_x:real){
         self.dest_x=dest_x;
-        if self.dest_x<LEFT_BORDER_X || self.dest_x >RIGHT_BORDER_X {
+        if self.dest_x<self.left_border_x || self.dest_x >self.right_border_x {
             //dest_x=rand::thread_rng().gen_range(LEFT_BORDER_X..RIGHT_BORDER_X);
             panic!("dest_x Out of border");
         }
@@ -186,7 +190,7 @@ impl CyberCat {
         
         match self.state{
             CyberCatState::IDLE=>{
-                self.walk_to(rand::thread_rng().gen_range(LEFT_BORDER_X..RIGHT_BORDER_X));
+                self.walk_to(rand::thread_rng().gen_range(self.left_border_x..self.right_border_x));
             }
             CyberCatState::LOVE=>{
                 self.state=CyberCatState::IDLE;

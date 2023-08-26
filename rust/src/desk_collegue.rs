@@ -1,7 +1,6 @@
 use godot::prelude::*;
 use godot::engine::{Node2D,Node2DVirtual, Sprite2D, Texture2D, Timer};
-use std::fs;
-use rand::{self, thread_rng, Rng};
+use rand::Rng;
 //use serde::{Deserialize, Serialize};
 
 use crate::speech_bubble::SpeechBubble;
@@ -11,7 +10,7 @@ use crate::speech_bubble::SpeechBubble;
 #[derive(GodotClass)]
 #[class(base=Node2D)]
 pub struct DeskCollegue{
-    bumps_list:Array<GodotString>,
+    bumps_list:PackedStringArray,
     timer:Gd<Timer>,
     sprite:Gd<Sprite2D>,
     bubble_scene:Gd<PackedScene>,
@@ -24,7 +23,7 @@ impl Node2DVirtual for DeskCollegue{
 
     fn init(base:Base<Node2D>)->Self{
         Self {
-            bumps_list:Array::new(),
+            bumps_list:PackedStringArray::new(),
             timer:Timer::new_alloc(),
             bubble_scene:PackedScene::new(),
             sprite:Sprite2D::new_alloc(), 
@@ -36,28 +35,25 @@ impl Node2DVirtual for DeskCollegue{
         self.sprite=self.base.get_node_as("Sprite2D");
         self.timer=self.base.get_node_as("Timer");
         self.bubble_scene=load("res://Scene/PopupDialog/SpeechBubble.tscn");
-        //self.initialize(rand::random(),0);
+        if self.base.get_meta("IsMan".into()).try_to::<bool>().unwrap()==false{
+            self.sprite.set_texture(load::<Texture2D>("res://assets/OfficeScene/OfficeDeskCollegue/DeskWoman.PNG"));
+        }
+        self.bumps_list=self.base.get_meta("BumpsList".into()).try_to::<PackedStringArray>().unwrap();
+
+        self.timer.connect("timeout".into(), self.base.callable("time_to_speak"));
+        self.timer.set_wait_time(2.0);
+        self.timer.start();   
     }
 }
 
 #[godot_api]
 impl DeskCollegue{
-    #[func]
-    pub fn initialize(&mut self,is_man:bool,bumps_list:Array<GodotString>){
-        if is_man {
-            self.sprite.set_texture(load::<Texture2D>("res://assets/OfficeScene/OfficeDeskCollegue/DeskMan.PNG"));
-        }else{
-            self.sprite.set_texture(load::<Texture2D>("res://assets/OfficeScene/OfficeDeskCollegue/DeskWoman.PNG"));
-        }
-        godot_print!("pwd:{}",std::env::current_dir ().unwrap ().display());
-        //self.load_text_list("D:/workspace/Godot/Prj0821/godot/text/bumps.json");
-        self.timer.connect("timeout".into(), self.base.callable("time_to_speak"));
-        self.timer.set_wait_time(2.0);
-        self.timer.start();     
-    }
 
     #[func]
     fn time_to_speak(&mut self){
+        if self.bumps_list.is_empty(){
+            return;
+        }
         let mut rng=rand::thread_rng();
         if rng.gen::<f64>()<0.2 {
             self.speak(self.bumps_list.get(rng.gen_range(0..self.bumps_list.len())));
@@ -86,14 +82,4 @@ impl DeskCollegue{
     }
 }
 
-impl DeskCollegue{
-    // fn load_text_list(&mut self,filepath:&str){
-    //     self.bumps_list = {
-    //         godot_print!("start reading");
-    //         //let data = fs::read_to_string(filepath).expect("LogRocket: error reading file");
-    //         vec![vec![String::from("怎么还没下班"),"想喝咖啡了".to_string(),"待会摸摸鱼吧".to_string()]]
-    //     };
-    //     godot_print!("{:?}",self.bumps_list);
-    // }
-}
 

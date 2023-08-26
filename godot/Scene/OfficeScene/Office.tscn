@@ -29,15 +29,21 @@ centered = false
 
 [node name="DeskCollegue1" parent="." instance=ExtResource("4_8qc08")]
 position = Vector2(523, 736)
+metadata/IsMan = true
+metadata/BumpsList = PackedStringArray("怎么还没下班", "想喝咖啡了", "待会摸摸鱼吧")
 
 [node name="Sprite2D" parent="DeskCollegue1" index="0"]
 texture = ExtResource("5_fjh0j")
 
 [node name="DeskCollegue2" parent="." instance=ExtResource("4_8qc08")]
 position = Vector2(523, 622)
+metadata/IsMan = true
+metadata/BumpsList = PackedStringArray("上班真累啊", "什么时候才发工资")
 
 [node name="DeskCollegue3" parent="." instance=ExtResource("4_8qc08")]
 position = Vector2(523, 508)
+metadata/IsMan = true
+metadata/BumpsList = PackedStringArray("想玩游戏", "想唱K")
 
 [node name="DeskCollegue4" parent="." instance=ExtResource("4_8qc08")]
 position = Vector2(523, 394)

@@ -6,6 +6,8 @@
 size = Vector2(139, 116)
 
 [node name="DeskCollegue" type="DeskCollegue"]
+metadata/IsMan = false
+metadata/BumpsList = PackedStringArray()
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2mvwv")

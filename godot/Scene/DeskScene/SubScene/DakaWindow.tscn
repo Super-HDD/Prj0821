@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb7blsk7f500l"]
+
+[ext_resource type="Texture2D" uid="uid://drwm2lgfyvgvn" path="res://assets/computer/DakaWindow/窄窗口背景.png" id="1_vuac3"]
+[ext_resource type="Texture2D" uid="uid://dxna06wpk04ui" path="res://assets/computer/DakaWindow/窄窗口.png" id="2_j6c63"]
+[ext_resource type="Texture2D" uid="uid://brfpsnatg4eph" path="res://assets/computer/关闭按钮.png" id="3_iwov5"]
+
+[node name="DakaWindow" type="DakaWindow"]
+
+[node name="Content" type="Node2D" parent="."]
+
+[node name="BackGround" type="Sprite2D" parent="Content"]
+texture = ExtResource("1_vuac3")
+centered = false
+
+[node name="Label" type="Label" parent="Content"]
+offset_left = 45.0
+offset_top = 89.0
+offset_right = 85.0
+offset_bottom = 112.0
+
+[node name="Border" type="Sprite2D" parent="."]
+texture = ExtResource("2_j6c63")
+centered = false
+
+[node name="CloseButton" type="TextureButton" parent="."]
+offset_left = 119.0
+offset_top = 9.0
+offset_right = 129.0
+offset_bottom = 19.0
+texture_normal = ExtResource("3_iwov5")

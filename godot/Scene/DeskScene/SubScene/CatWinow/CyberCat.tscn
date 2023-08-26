@@ -62,8 +62,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0fid"]
 size = Vector2(60, 40)
 
-[node name="CharacterBody2D" type="CyberCat"]
+[node name="CyberCat" type="CyberCat"]
 input_pickable = true
+metadata/LeftBorderX = 0.0
+metadata/RightBorderX = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iw0mj")
